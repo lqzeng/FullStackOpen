@@ -1,0 +1,90 @@
+================= 0.4 =================
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+note over server:
+the server accesses the data from the 
+body of the POST-reques and creates a 
+new note object with it, adding it to
+the notes array
+end note
+
+server-->browser: HTTP status code 302
+
+note over browser:
+server requests browser to do a new HTTP GET 
+request which will reload the notes page 
+from the location specified in the response 
+header
+end note 
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
+
+=======================================
+
+================= 0.5 =================
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: spa.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
+
+=======================================
+
+================= 0.6 =================
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+
+note over browser:
+new note is sent as JSON-data which contains
+the note data (content, timestamp)
+end note
+
+note over server:
+the server parses the data guided by the header
+then the event handler adds the note to the list,
+re-renders the notes page and sends 
+the new note to the server
+end note
+
+server-->browser: HTTP status code 201
+
+note over browser:
+browser stays on the same page, as it is 
+not redirected
+end note
+
+=======================================
