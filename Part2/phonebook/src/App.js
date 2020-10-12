@@ -33,7 +33,7 @@ const App = () => {
 
     const [message, setMessage] = useState(null)
 
-    const [messageType, setMessageType] = useState(null)
+    const [messageType, setMessageType] = useState(null)  //success or error
 
 
     useEffect(() => {
@@ -73,7 +73,6 @@ const App = () => {
                 setNewName('')
                 setNewNumber('')
 
-                console.log(persons)
                 //end function early
                 return
             }
@@ -111,12 +110,8 @@ const App = () => {
 
     const removePerson = (event) => {
         event.preventDefault()
-
         const id = parseInt(event.target.value)
-
         const personToDelete = persons.find(p => p.id === id)
-
-        console.log("person to delete", personToDelete)
 
         phonebookService
             .remove(personToDelete)
