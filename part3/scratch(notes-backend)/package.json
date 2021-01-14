@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error no test specified\" && exit 1",
-    "build:ui": "rm -rf build && cd ~/Documents/fullstackopen/part2/'scratch(notes-frontend)' && npm run build --prod && cp -r build ~/Documents/fullstackopen/part3/'scratch(notes-backend)'",
+    "build:ui": "rm -rf build && cd ~/Documents/fullstackopen/Part2/'scratch(notes-frontend)' && npm run build --prod && cp -r build ~/Documents/fullstackopen/part3/'scratch(notes-backend)'",
     "deploy": "git push heroku main",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy", 
     "logs:prod": "heroku logs --tail"
